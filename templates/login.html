@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>регистрация онлайн без смс и привязки банковской карты</title>
+</head>
+
+<body>
+    <form action="/login" method="post">
+        <div>
+            <div>
+
+                <label for="">имя пользователя</label> <br>
+                <input type="text" name="username">
+            </div>
+          
+            <div>
+                <label for="">пароль</label> <br>
+                <input type="password" name="password">
+
+            </div>
+            <br><button type="submit">войти</button>
+        </div>
+
+
+    </form>
+    {% for message in get_flashed_messages(with_categories=true) %}
+    <div>{{message[1]}}</div>
+    {% endfor %}
+</body>
+<style>
+    form {
+
+        border: 0px rgb(43, 226, 156) solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(118, 247, 198);
+    }
+    form >div{
+        border: 0px blueviolet solid; 
+        background-color: rgb(119, 248, 199);
+        padding: 30px;
+        margin: 30px;
+            }
+form button{ 
+    width: 100%;
+}
+
+</style>
+
+</html>

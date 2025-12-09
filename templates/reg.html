@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>регистрация онлайн без смс и привязки банковской карты</title>
+</head>
+
+<body>
+
+    <form action="/reg" method="post">
+        <div>
+            <div>
+
+                <label for="">имя пользователя</label> <br>
+                <input type="text" name="username">
+            </div>
+            <div><label for="">телефон</label> <br>
+                <input type="text" name="phonenumber">
+            </div>
+            <div>
+                <label for="">пароль</label> <br>
+                <input type="password" name="password">
+
+            </div>
+            <br><button type="submit">зарегистрироваться</button>
+
+        </div>
+
+
+    </form>
+    {% for message in get_flashed_messages(with_categories=true) %}
+    <div>{{message[1]}}</div>
+    {% endfor %}
+</body>
+<style>
+    body{
+        background-image: url("https://i.pinimg.com/736x/cc/f0/4d/ccf04d8ffc6ca44c16400478dd1787dd.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    form {
+
+        border: 0px rgb(43, 226, 156) solid;
+        display: flex;
+         
+        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    form >div{
+        width: 55%;
+        color: rgb(255, 255, 255);
+        font-size: 100%;
+        border: 0px blueviolet solid;
+        border-radius: 40px; 
+        background-color: rgb(117, 50, 180);
+        padding: 60px;
+        margin: 60px;
+            }
+form button{ 
+    width: 100%;
+    padding: 0px;
+        margin: 0px;
+}
+form input{
+    padding: 0px;
+        margin: 0px;
+    width: 100% ;
+}
+form >div>div{
+    width: 100%;
+    padding: 0px;
+        margin: 0px;
+}
+</style>
+
+</html>

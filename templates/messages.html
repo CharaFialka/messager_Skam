@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ваш корпус ФМШ</title>
+</head>
+<body>
+    <div id="chats">
+        {% for chat in chats %}
+        
+        <a href="/messages?chat_id={{chat[0]}}" ><div class="chat" onclick="getMessages({{chat[0]}})">{{chat[1]}}</div></a>
+    {% endfor %}
+    </div>
+    <div id="message">
+       {%for message in messages%}
+            <div>{{message[1]}}</div>
+       {% endfor %}
+    </div>
+    <div id="sidebar">
+      боковая панелька 
+    </div>
+</body>
+</html>
+<style>
+    #chats{
+        background-color: rgb(183, 145, 218);
+        width: 20%;
+        height: 100%;
+    }
+    #message{
+        background-color: aquamarine;
+        width: 57%;
+        height: 100%;
+    }
+    #sidebar{
+        background-color: aqua;
+        width: 23%;
+        height: 100%;
+    }
+    body{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        border: 1px black solid;
+    }
+    .chat{
+        border: 2px rgb(16, 159, 255) solid;
+        padding: 6px;
+        cursor: pointer;
+
+    }
+</style>
+<script>
+    function getMessages(chatId) {
+        console.log(`выбран чат ${chatId}`)
+    }
+</script>
