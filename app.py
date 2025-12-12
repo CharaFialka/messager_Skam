@@ -60,5 +60,4 @@ def get_mess():
     chats=database.get_chats(user[0])
     return render_template("messages.html", chats=chats, messages=messages)
 
-#Сделать отрисовку сообщений 
 app.run()

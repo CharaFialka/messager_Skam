@@ -29,10 +29,12 @@ def get_user_by_name(name):
     cursor.execute(f"SELECT * FROM users WHERE name = '{name}'")
     user = cursor.fetchone()
     return user
+
 def get_chats(id):
     cursor.execute(f"""SELECT chats.id, name, user_id FROM chat_users INNER JOIN chats ON chat_users.chat_id= chats.id Where user_id={id};""")
     chats=cursor.fetchall()
     return chats
+
 def get_messages(chat_id):
     cursor.execute(f"""SELECT * FROM messages WHERE chat_id={chat_id}""")
     messages = cursor.fetchall()
