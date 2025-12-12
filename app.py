@@ -59,5 +59,5 @@ def get_mess():
     user= database.get_user_by_name(username)
     chats=database.get_chats(user[0])
     return render_template("messages.html", chats=chats, messages=messages)
-
+# эту ветку захватили весёлые тюленчики 
 app.run()
