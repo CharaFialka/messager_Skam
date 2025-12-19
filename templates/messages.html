@@ -1,58 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ваш корпус ФМШ</title>
 </head>
+
 <body>
     <div id="chats">
         {% for chat in chats %}
-        
-        <a href="/messages?chat_id={{chat[0]}}" ><div class="chat" onclick="getMessages({{chat[0]}})">{{chat[1]}}</div></a>
-    {% endfor %}
+
+        <a href="/messages?chat_id={{chat[0]}}">
+            <div class="chat" onclick="getMessages({{chat[0]}})">{{chat[1]}}</div>
+        </a>
+        {% endfor %}
     </div>
     <div id="message">
-       {%for message in messages%}
-            <div>{{message[1]}}</div>
-       {% endfor %}
+        {% for message in messages %}
+        {% if message[3] == user_id %}
+        <div class="msg my-msg">
+            {{ message[1] }}
+        </div>
+        {% else %}
+        <div class="msg other-msg">
+            {{ message[1] }}
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
     <div id="sidebar">
-      боковая панелька 
+        боковая панелька
     </div>
 </body>
+
 </html>
 <style>
-    #chats{
+    .msg {
+        max-width: 60%;
+        padding: 8px 12px;
+        margin: 5px 0;
+        border-radius: 12px;
+        word-wrap: break-word;
+        font-size: 14px
+    }
+
+    .my-msg {
+        align-self: flex-end;
+        background-color: #9ee7ff;
+        text-align: right;
+    }
+
+    .other-msg {
+        align-self: flex-start;
+        background-color: #ffffff;
+        text-align: left;
+    }
+
+    #chats {
         background-color: rgb(183, 145, 218);
         width: 20%;
         height: 100%;
     }
-    #message{
+
+    #message {
         background-color: aquamarine;
         width: 57%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
     }
-    #sidebar{
+
+    #sidebar {
         background-color: aqua;
         width: 23%;
         height: 100%;
     }
-    body{
+
+    body {
         display: flex;
         flex-direction: row;
         height: 100vh;
         border: 1px black solid;
     }
-    .chat{
+
+    .chat {
         border: 2px rgb(16, 159, 255) solid;
         padding: 6px;
         cursor: pointer;
 
     }
 </style>
-<script>
-    function getMessages(chatId) {
-        console.log(`выбран чат ${chatId}`)
-    }
-</script>

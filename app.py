@@ -58,6 +58,12 @@ def get_mess():
         return redirect("/login")
     user= database.get_user_by_name(username)
     chats=database.get_chats(user[0])
-    return render_template("messages.html", chats=chats, messages=messages)
+    return render_template(
+        "messages.html",
+        chats=chats,
+        messages=messages,
+        user_id=user[0] 
+    )
+
 # эту ветку захватили весёлые тюленчики 
 app.run()
